@@ -1,13 +1,9 @@
-import Link from "next/link";
-
 const Icons = (props) => {
-  return (
-    <Link href={props.path}>
-      <div>
-        <i className={props.classprop}></i>
-      </div>
-    </Link>
-  );
-};
+    return (
+        <div>
+            <i className={props.classprop}></i>
+        </div>
+    )
+}
 
-export default Icons;
+export default Icons

@@ -1,35 +1,21 @@
-// import "../styles/globals.css";
-import "../styles/CreateSite.css";
-import "../styles/generateCharges.css";
-import "../styles/homepage.css";
-import "../styles/Landing.css";
-import "../styles/p_auth.css";
+import '../styles/globals.css'
+import '../styles/p_auth.css'
+import '../styles/generateCharges.css'
+import "../styles/particularSite.css"
 import "../styles/Profile.css";
-import "bootstrap/dist/css/bootstrap.css";
-// import "../node_modules/bootstrap/dist/css/bootstrap.css";
-
-import "../styles/particularSite.css";
+import "../styles/Landing.css"
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import "bootstrap/dist/css/bootstrap.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { useEffect } from "react";
-import { SnackbarProvider } from "notistack";
-import { StoreProvider } from "../utility/Store";
+
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     import("bootstrap/dist/js/bootstrap");
   }, []);
-  return (
-    <SnackbarProvider anchorOrigin={{ vertical: "top", horizontal: "center" }}>
-      <StoreProvider>
-        {/* <PayPalScriptProvider deferLoading={true}> */}
-        <Component {...pageProps} />
-        {/* </PayPalScriptProvider> */}
-      </StoreProvider>
-    </SnackbarProvider>
-  );
+  return <Component {...pageProps} />;
 }
 
 MyApp.getInitialProps = async (ctx) => {
@@ -38,4 +24,4 @@ MyApp.getInitialProps = async (ctx) => {
   return {};
 };
 
-export default MyApp;
+export default MyApp

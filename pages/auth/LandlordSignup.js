@@ -2,24 +2,8 @@ import Image from "next/image";
 import Landlord from "../../public/images/Landlord.png";
 import Home_fill from "../../public/images/Home_fill.png";
 import Ellipse47 from "../../public/images/Ellipse47.png";
-import { useSnackbar } from "notistack";
-import { useRouter } from "next/router";
-import { useContext, useState } from "react";
-import { Store } from "../../utility/Store";
-import axios from "axios";
-import Cookies from "js-cookie";
 
 function Lsignup() {
-  const { enqueueSnackbar, closeSnackbar } = useSnackbar();
-  const router = useRouter();
-  const { redirect } = router.query;
-  const { dispatch, state } = useContext(Store);
-  const [details, setDetails] = useState({
-    name: "",
-    contact: "",
-    email: "",
-  });
-
   const [check, setCheck] = useState({
     isChecked: false,
   });
@@ -42,9 +26,9 @@ function Lsignup() {
     submitHandler(details);
   };
 
-  if (state.userInfo) {
-    router.push("/profile/tenant");
-  }
+  // if (state.userInfo) {
+  //   router.push("/profile/tenant");
+  // }
 
   const submitHandler = async (details) => {
     closeSnackbar();
@@ -57,7 +41,7 @@ function Lsignup() {
       enqueueSnackbar("User Signed Up Successfully", { variant: "success" });
       router.push(redirect || "/landing/landlord");
     } catch (err) {
-      enqueueSnackbar(err.response?.data?.message, { variant: "error" });
+      enqueueSnackbar(err.message, { variant: "error" });
     }
   };
 
